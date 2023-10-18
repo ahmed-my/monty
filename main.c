@@ -14,24 +14,22 @@ int main(int argc, char *argv[])
 	char *content;
 	size_t size;
 	ssize_t read_line;
+
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		return (EXIT_FAILURE);
 	}
-
 	file = fopen(argv[1], "r");
 	if (!file)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		return (EXIT_FAILURE);
 	}
-
 	stack = NULL;
 	count = 0;
 	content = NULL;
 	size = 0;
-
 	while ((read_line = getline(&content, &size, file)) > 0)
 	{
 		bus.file = file;
@@ -43,10 +41,8 @@ int main(int argc, char *argv[])
 		free(content);
 		content = NULL;
 	}
-
 	free_stack(stack);
 	free(content);
 	fclose(file);
-
 	return (EXIT_SUCCESS);
 }
