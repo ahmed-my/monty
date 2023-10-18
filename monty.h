@@ -56,7 +56,7 @@ typedef struct instruction_s
 char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
 ssize_t getstdin(char **lineptr, int file);
 char  *clean_line(char *content);
-void f_push(stack_t **head, unsigned int number);
+void f_push(stack_t **head, unsigned int count);
 void f_pall(stack_t **head, unsigned int number);
 void f_pint(stack_t **head, unsigned int number);
 int execute(char *content, stack_t **head, unsigned int counter, FILE *file);
@@ -81,8 +81,4 @@ void f_stack(stack_t **head, unsigned int counter);
 
 
 
-int is_valid_integer(const char *str);
-stack_t *create_node(int n);
-void add_to_stack(stack_t **stack, stack_t *new_node);
-void add_to_queue(stack_t **stack, stack_t *new_node);
 #endif
